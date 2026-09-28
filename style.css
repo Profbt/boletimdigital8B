@@ -1,0 +1,162 @@
+/* ===== Reset básico ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== Variáveis de cor (fáceis de mudar depois) ===== */
+:root {
+  --fundo: #0d1117;          /* fundo escuro principal */
+  --fundo-card: #161b22;     /* fundo dos cards e tabela */
+  --verde-neon: #39ff14;     /* cor principal (destaques) */
+  --laranja: #ff8c1a;        /* cor secundária (atenção) */
+  --texto: #e6edf3;          /* texto claro */
+  --texto-suave: #8b949e;    /* textos de apoio */
+  --borda: #30363d;          /* bordas suaves */
+}
+
+/* ===== Corpo da página ===== */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--fundo);
+  color: var(--texto);
+  padding: 20px;
+  line-height: 1.5;
+}
+
+/* ===== Cabeçalho ===== */
+.cabecalho {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--verde-neon);
+}
+
+.cabecalho h1 {
+  font-size: 2rem;
+  color: var(--verde-neon);
+  text-shadow: 0 0 8px rgba(57, 255, 20, 0.5);
+}
+
+.subtitulo {
+  color: var(--laranja);
+  font-size: 1rem;
+  margin-top: 6px;
+}
+
+/* ===== Cards de resumo ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background-color: var(--fundo-card);
+  border: 2px solid var(--verde-neon);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(57, 255, 20, 0.25);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card h2 {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--verde-neon);
+}
+
+.frequencia-status {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--laranja);
+  margin-top: 4px;
+}
+
+/* ===== Tabela ===== */
+.tabela-container {
+  overflow-x: auto; /* permite rolar a tabela no celular */
+  border-radius: 12px;
+  border: 2px solid var(--verde-neon);
+  box-shadow: 0 0 10px rgba(57, 255, 20, 0.25);
+}
+
+table.boletim {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px; /* garante que a tabela não fique espremida */
+  background-color: var(--fundo-card);
+}
+
+table.boletim th,
+table.boletim td {
+  padding: 10px 12px;
+  text-align: center;
+  border-bottom: 1px solid var(--borda);
+  font-size: 0.9rem;
+}
+
+table.boletim th {
+  background-color: #0b2a0b;
+  color: var(--verde-neon);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+table.boletim td:first-child,
+table.boletim th:first-child {
+  text-align: left;
+}
+
+table.boletim tbody tr:hover {
+  background-color: #1c2129;
+}
+
+/* ===== Situações ===== */
+.situacao-bom {
+  color: var(--verde-neon);
+  font-weight: bold;
+}
+
+.situacao-atencao {
+  color: var(--laranja);
+  font-weight: bold;
+}
+
+.situacao-indisponivel {
+  color: var(--texto-suave);
+  font-style: italic;
+}
+
+/* ===== Ajustes para celular ===== */
+@media (max-width: 600px) {
+  .cabecalho h1 {
+    font-size: 1.5rem;
+  }
+
+  .card p {
+    font-size: 1.3rem;
+  }
+
+  table.boletim th,
+  table.boletim td {
+    padding: 8px;
+    font-size: 0.8rem;
+  }
+}
